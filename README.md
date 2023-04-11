@@ -39,6 +39,10 @@ python manage.py runserver
 ```
 
 По адресу http://127.0.0.1:8000/api/v1/compute/ будут доступны GET и POST запросы
+- Тесты запускаются так:
+```
+python manage.py test
+```
 - Формат взаимодействия такой (я использовал POSTMAN):
 ```
 POST запрос
