@@ -38,8 +38,8 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-По адресу http://127.0.0.1:8000/api/v1/compute/ будут доступны GET и POST запросы \n
-Формат взаимодействия такой (я использовал POSTMAN):
+По адресу http://127.0.0.1:8000/api/v1/compute/ будут доступны GET и POST запросы
+- Формат взаимодействия такой (я использовал POSTMAN):
 ```
 POST запрос
 {
