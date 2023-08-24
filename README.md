@@ -10,12 +10,15 @@ service for calculating
 - Написано несколько базовых тестов.
 
 ### Как запустить проект:
+Скдлнировать репозиторий:
+```
+https://github.com/FFFSanchez/this-has-answers.git
+```
 
 Создать свой .env в корне проекта в формате (SECRET_KEY можно сгенерить тут https://djecrety.ir/):
 ```
 SECRET_KEY=***
 ```
-
 
 * Запуск через виртуальное окружение:
 
