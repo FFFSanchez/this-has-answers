@@ -16,16 +16,21 @@ service for calculating
 SECRET_KEY=***
 ```
 
-1) Запуск через виртуальное окружение:
+
+* Запуск через виртуальное окружение:
 
 ```
 python -m venv env
 source venv/Scripts/activate
 pip install -r requirements.txt
+
+- Запуск тестов:
+python manage.py test
+
 python manage.py runserver
 ```
 
-2) Запуск через Docker:
+* Запуск через Docker:
 
 ```
 docker build -t opencode .
@@ -33,11 +38,8 @@ docker run --name opencode_container --env-file .env --rm -p 8000:8000 opencode
 ```
 
 По адресу http://127.0.0.1:8000/api/compute/ будут доступны GET и POST запросы
-- Тесты запускаются так:
-```
-python manage.py test
-```
-- Формат взаимодействия такой (я использовал POSTMAN):
+
+## Примеры использования:
 ```
 GET запрос
 {
@@ -60,7 +62,7 @@ POST запрос
     "result": 4.5
 }
 ```
-Либо информативное сообщение об ошибке. Ошибки обрабатываются все.
+Либо в ответе будет информативное сообщение об ошибке. Ошибки обрабатываются все.
 
 
 ### Автор: 
