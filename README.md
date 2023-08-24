@@ -10,7 +10,7 @@ service for calculating
 - Написано несколько базовых тестов.
 
 ### Как запустить проект:
-Скдлнировать репозиторий:
+Склонировать репозиторий:
 ```
 https://github.com/FFFSanchez/this-has-answers.git
 ```
