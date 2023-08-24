@@ -1,31 +1,36 @@
 from http import HTTPStatus
 
-import requests
-from django.test import TestCase
+from django.test import Client, TestCase
 
 
 class ApiURLTests(TestCase):
+    """ Минимальный смоук тест """
 
-    URL = 'http://127.0.0.1:8000/api/v1/compute/'
+    URL = '/api/compute/'
+
+    def setUp(self):
+        self.guest_client = Client()
 
     def test_get(self):
         """Проверяем доступность сервиса."""
-        response = requests.get(ApiURLTests.URL)
+        response = self.guest_client.get(ApiURLTests.URL)
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_post(self):
         """Проверяем минимальную работоспособность."""
-        response = requests.post(
+        response = self.guest_client.post(
             ApiURLTests.URL,
-            json={"expression": "lg(5*a+2*b)", "varies": {"a": "2", "b": "3"}}
+            data={"expression": "lg(5*a+2*b)", "varies": {"a": "2", "b": "3"}},
+            content_type='application/json'
         )
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_post_check_answer(self):
         """Проверяем корректность ответа."""
-        response = requests.post(
+        response = self.guest_client.post(
             ApiURLTests.URL,
-            json={"expression": "lg(5*a+2*b^21+tan(9)+tan(2))",
-                  "varies": {"a": "2", "b": "3"}}
+            data={"expression": "lg(5*a+2*b^21+tan(9)+tan(2))",
+                  "varies": {"a": "2", "b": "3"}},
+            content_type='application/json'
         )
         self.assertEqual(response.json()["result"], "10.320576344929734")
